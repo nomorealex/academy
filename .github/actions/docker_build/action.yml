@@ -36,7 +36,7 @@ runs:
             echo "${{inputs.path_dockerfile}}"
             echo "${{inputs.image_name}}"
             echo "${{inputs.tag_name}}"
-            docker build . --file ${{ inputs.path_dockerfile }} --tag ${{inputs.image_name}}:${{inputs.tag_name}}
+            docker build . --file ${{ inputs.path_dockerfile }} --tag $DOCKER_IMAGE_NAME:$TAG
     - name: List docker images
       shell: bash
       run: docker image ls
