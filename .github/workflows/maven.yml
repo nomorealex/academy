@@ -34,8 +34,8 @@ jobs:
         run: docker build . --file ./src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
       - name: List docker images
         run: docker image ls
-
-      - uses: /nomorealex/academy/.github/actions/maven_build@action
+      - name: Run action.yaml
+        uses: nomorealex/academy/.github/actions/maven_build@action
       #run: mvn -B package --file pom.xml -Dmaven.test.skip=true
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
