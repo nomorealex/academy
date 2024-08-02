@@ -18,12 +18,3 @@ runs:
     - name: Build with Maven
       shell: bash
       run: mvn -B package --file pom.xml -Dmaven.test.skip=true
-    - name: Build docker image
-      shell: bash
-      run: docker build . --file ./src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
-    - name: List docker images
-      shell: bash
-      run: docker image ls
-    - name: list
-      shell: bash
-      run: ls
