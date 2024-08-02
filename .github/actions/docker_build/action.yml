@@ -8,26 +8,26 @@ inputs:
   path_dockerfile:
     description: 'Path to the Dockerfile'
     required: true
-    default: './src/main/docker/Dockerfile.jvm'
+    default: "./src/main/docker/Dockerfile.jvm"
   image_name:
     description: 'Name of the Docker image to be built'
     required: false
-    default: 'academy'
+    default: "academy"
   tag_name:
     description: 'Tag for the Docker image'
     required: false
-    default: ''
+    default: ""
 runs:
   using: composite
   steps:
     - name: Set image
       run: |
-          if [ -z "${{ inputs.tag_name}} }}" ]; then
-            echo "TAG=$(date +%s)" >> $GITHUB_ENV
-          else
-            echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
-          fi
-          echo "DOCKER_IMAGE_NAME=${{inputs.image_name}}" >> $GITHUB_ENV
+            if [ -z "${{ inputs.tag_name}} }}" ]; then
+              echo "TAG=$(date +%s)" >> $GITHUB_ENV
+            else
+              echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
+            fi
+            echo "DOCKER_IMAGE_NAME=${{inputs.image_name}}" >> $GITHUB_ENV
       shell: bash
 
     - name: Build docker image
@@ -37,7 +37,6 @@ runs:
             echo "${{inputs.image_name}}"
             echo "${{inputs.tag_name}}"
             docker build . --file ${{ inputs.path_dockerfile }} --tag ${{inputs.image_name}}:${{inputs.tag_name}}
-
     - name: List docker images
       shell: bash
       run: docker image ls
