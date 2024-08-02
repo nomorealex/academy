@@ -18,6 +18,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+
+    # Service containers to run with `runner-job`
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: fs_academy
+        # Set health checks to wait until postgres has started
+        #options: >-
+        #  --health-cmd pg_isready
+        #  --health-interval 10s
+        #  --health-timeout 5s
+        #  --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+
     steps:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -25,9 +46,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: nomorealex/academy/.github/actions/maven_build@main
-      - uses: nomorealex/academy/.github/actions/docker_build_image@main
-        with:
-          tag_name: "academy"
+
+      - name: Run with maven
+        shell: bash
+        run: mvn quarkus:dev
+      #- uses: nomorealex/academy/.github/actions/docker_build_image@main
+        #with:
+          #tag_name: "academy"
       #- uses: nomorealex/academy/.github/actions/docker_build@main
       #  with:
       #    tag_name: "academy1"
