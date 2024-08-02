@@ -15,7 +15,7 @@ inputs:
     default: "academy"
   tag_name:
     description: 'Tag for the Docker image'
-    required: false
+    required: true
     default: ""
 runs:
   using: composite
