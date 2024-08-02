@@ -20,9 +20,14 @@ jobs:
 
     steps:
       - uses: nomorealex/academy/.github/actions/maven_build@main
-      - uses: nomorealex/academy/.github/actions/docker_build@main
+      - uses: nomorealex/academy/.github/actions/docker_build_image@main
         with:
-          tag_name: "academy1"
+          tag_name: "academy"
+      #- uses: nomorealex/academy/.github/actions/docker_build@main
+      #  with:
+      #    tag_name: "academy1"
+
+
 
       #run: mvn -B package --file pom.xml -Dmaven.test.skip=true
 
