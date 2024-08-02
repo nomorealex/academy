@@ -22,7 +22,7 @@ runs:
   steps:
     - name: Set image
       run: |
-            if [ -z "${{inputs.tag_name}} }}" ]; then
+            if [ -z "${{inputs.tag_name}}" ]; then
               echo "TAG=$(date +%s)" >> $GITHUB_ENV
             else
               echo "TAG=${{inputs.tag_name}}" >> $GITHUB_ENV
@@ -34,9 +34,7 @@ runs:
       shell: bash
       run: |
             echo "${{inputs.path_dockerfile}}"
-            echo "${{DOCKER_IMAGE_NAME}}"
-            echo "${{TAG}}"
-            docker build . --file ${{inputs.path_dockerfile }} --tag ${{DOCKER_IMAGE_NAME}}:${{TAG}}
+            docker build . --file ${{inputs.path_dockerfile }} --tag $DOCKER_IMAGE_NAME:$TAG
     - name: List docker images
       shell: bash
       run: docker image ls
