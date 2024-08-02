@@ -47,9 +47,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: nomorealex/academy/.github/actions/maven_build@main
 
-      - name: Run with maven
+
+      - name: Run tests
         shell: bash
-        run: mvn quarkus:dev
+        run: mvn test
       #- uses: nomorealex/academy/.github/actions/docker_build_image@main
         #with:
           #tag_name: "academy"
