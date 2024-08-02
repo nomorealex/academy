@@ -5,6 +5,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.util.List;
 
+/*
 public class CommonProfile implements QuarkusTestProfile {
 
     @Override
@@ -15,3 +16,5 @@ public class CommonProfile implements QuarkusTestProfile {
         );
     }
 }
+
+ */

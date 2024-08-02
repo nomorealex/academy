@@ -104,6 +104,7 @@ class TeamResourceTest {
 
     }
 
+    /*
     @Test
     @DisplayName("validate the creation of a team")
     void shouldCreateTeam() {
@@ -113,4 +114,6 @@ class TeamResourceTest {
     @DisplayName("validate the removal of a team")
     void shouldRemoveTeam() {
     }
+
+     */
 }

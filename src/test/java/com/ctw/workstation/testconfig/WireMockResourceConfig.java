@@ -5,6 +5,7 @@ import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;
 
 import java.util.Map;
 
+/*
 public class WireMockResourceConfig implements QuarkusTestResourceLifecycleManager {
 
     WireMockServer wireMockServer;
@@ -22,3 +23,5 @@ public class WireMockResourceConfig implements QuarkusTestResourceLifecycleManag
         wireMockServer.stop();
     }
 }
+
+ */

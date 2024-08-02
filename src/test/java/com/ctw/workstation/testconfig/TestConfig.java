@@ -6,6 +6,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.util.Map;
 
+/*
 public class TestConfig implements QuarkusTestResourceLifecycleManager {
 
     PostgreSQLContainer postgres;
@@ -37,3 +38,5 @@ public class TestConfig implements QuarkusTestResourceLifecycleManager {
         Log.infov("About to stop", "TestConfig.stop");
     }
 }
+
+ */

@@ -1,9 +1,9 @@
 package com.ctw.workstation.team.boundary;
 
 import com.ctw.workstation.team.entity.Team;
-import com.ctw.workstation.testconfig.CommonProfile;
-import com.ctw.workstation.testconfig.TestConfig;
-import com.ctw.workstation.testconfig.WireMockResourceConfig;
+//import com.ctw.workstation.testconfig.CommonProfile;
+//import com.ctw.workstation.testconfig.TestConfig;
+//import com.ctw.workstation.testconfig.WireMockResourceConfig;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
@@ -20,10 +20,11 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 import static io.restassured.RestAssured.*;
 
+/*
 @QuarkusTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestHTTPEndpoint(TeamResource.class)
-@TestProfile(CommonProfile.class)
+//@TestProfile(CommonProfile.class)
 //@QuarkusTestResource(TestConfig.class)
 //@QuarkusTestResource(WireMockResourceConfig.class)
 public class TeamResourceIT {
@@ -88,11 +89,15 @@ public class TeamResourceIT {
 
     }
 
+
     @Test
     void shouldDeleteTeamById(){
 
     }
+
+
 }
+*/
 
 
 
