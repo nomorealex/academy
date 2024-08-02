@@ -1,0 +1,29 @@
+name: Build
+description: Build application with Maven and create a new Docker image
+inputs:
+  dockerfile_path:
+    description: "Path to the Dockerfile"
+    required: false
+    default: "Dockerfile"
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      shell: bash
+      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+    - name: Build docker image
+      shell: bash
+      run: docker build . --file ./src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
+    - name: List docker images
+      shell: bash
+      run: docker image ls
+    - name: list
+      shell: bash
+      run: ls
